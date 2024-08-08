@@ -1,0 +1,42 @@
+<div class="flex items-center justify-center min-h-screen bg-cover bg-center" style="background-image: url('https://storage.googleapis.com/aulas_imagenes/encoded_facade_img6odmxyuba0d.gif');">
+    <div class="bg-white shadow-lg rounded-lg p-14 custom-container mx-auto border border-gray-300">
+        <h1 class="text-5xl font-bold mb-8 text-center text-gray-800">Registro</h1>
+        <form (ngSubmit)="onSubmit()">
+            <div class="mb-8">
+                <label for="name" class="block mb-3 text-lg font-medium text-gray-700">Tu nombre</label>
+                <input type="text" id="name" [(ngModel)]="user.name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4" placeholder="Tu nombre" required />
+            </div>
+            <div class="mb-8">
+                <label for="email" class="block mb-3 text-lg font-medium text-gray-700">Tu correo electrónico</label>
+                <input type="email" id="email" [(ngModel)]="user.email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4" placeholder="name@domain.com" required />
+            </div>
+            <div class="mb-8">
+                <label for="password" class="block mb-3 text-lg font-medium text-gray-700">Tu contraseña</label>
+                <div class="relative">
+                    <input 
+                        [type]="showPassword ? 'text' : 'password'" 
+                        id="password" 
+                        [(ngModel)]="user.password" 
+                        name="password" 
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4" 
+                        required 
+                    />
+                    <button 
+                        type="button" 
+                        (click)="togglePasswordVisibility()" 
+                        class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500 hover:text-gray-700"
+                        aria-label="Toggle password visibility"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657A8.002 8.002 0 0112 20a8 8 0 01-8-8 8.002 8.002 0 015.657-6.657m0 0A8.002 8.002 0 0112 4a8 8 0 015.657 6.657m-5.657 0A4 4 0 0012 8a4 4 0 00-4 4 4 4 0 004 4 4 4 0 004-4 4 4 0 00-4-4" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-6 rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300">Registrar</button>
+        </form>
+        <p class="mt-8 text-lg text-center text-gray-500">
+            ¿Ya tienes una cuenta? <a href="/login" class="text-orange-600 hover:underline">Iniciar sesión</a>
+        </p>
+    </div>
+</div>

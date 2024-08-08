@@ -1,0 +1,52 @@
+
+<nav class="bg-white shadow-lg border-b-2 border-gray-200">
+  <div class="w-full flex flex-wrap items-center justify-between mx-auto py-4 px-6">
+    <div class="flex items-center space-x-8">
+      <a href="/products" class="flex items-center">
+        <img src="https://cdn.dribbble.com/users/559871/screenshots/4751426/media/f3cbed3b86c608b371c0cb57b53324ff.jpg" class="h-16 mr-5 rounded-full border-2 border-gray-300" alt="Hombre Guapo" />
+        <span class="self-center text-2xl font-bold text-gray-800 whitespace-nowrap">QuickCart</span>
+      </a>
+      <ul class="flex space-x-6 text-lg font-bold">
+        <li>
+          <a href="/products" class="block underline hover:underline text-gray-700" aria-current="page">Home</a>
+        </li>
+        <li>
+          <a href="/administrar" class="block underline hover:underline text-gray-700" aria-current="page">Administracion</a>
+        </li>
+        <li>
+          <a href="/redes" class="block underline hover:underline text-gray-700" aria-current="page">Redes</a>
+        </li>
+      </ul>
+    </div>
+    <div class="flex items-center">
+      <button class="p-2 border rounded relative" (click)="toogleSideMenu()">
+        <div class="absolute -top-2 -left-2 rounded-full h-6 w-6 bg-black text-white text-xs flex items-center justify-center">{{ cart().length }}</div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-700">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="fixed top-0 right-0 bg-white z-40 w-72 h-screen p-4 overflow-y-auto transition-transform border-l-4 border-gray-300" [class.translate-x-full]="hideSiteMenu()">
+  <div class="flex justify-between items-center">
+    <p class="text-xl font-bold text-gray-800">My Cart</p>
+    <button (click)="toogleSideMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-700">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  <div class="pt-4 flex flex-col space-y-4">
+    <div class="flex justify-between items-center" *ngFor="let product of cart()">
+      <div class="flex space-x-2 items-center">
+        <img class="w-12 h-12 object-cover border rounded-lg" [src]="product.images[0]" [alt]="product.title">
+        <h3 class="text-gray-800 font-medium">{{ product.title }}</h3>
+      </div>
+      <p class="text-gray-900 font-semibold">${{ product.price }}</p>
+    </div>
+    <div class="mt-4 border-t pt-4">
+      <p class="text-xl font-bold text-gray-800">Total: ${{ total() }}</p>
+    </div>
+  </div>
+</div>

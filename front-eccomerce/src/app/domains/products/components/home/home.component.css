@@ -1,0 +1,54 @@
+.about-container {
+    font-family: Arial, sans-serif;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .hero {
+    text-align: center;
+    background-color: rgb(255, 98, 0);
+    background-size: cover;
+    color: #ffffff;
+    padding: 100px 20px;
+  }
+  .fondo {
+    background-image: url('https://storage.googleapis.com/aulas_imagenes/encoded_facade_img6odmxyuba0d.gif');
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .hero p {
+    font-size: 24px;
+  }
+  
+  .about-section,
+  .services-section,
+  .contact-section {
+    margin: 40px 0;
+  }
+  
+  .services-section .service-item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+  
+  .contact-section .social-media {
+    margin-top: 20px;
+  }
+  
+  .contact-section .social-media img {
+    width: 40px;
+    margin: 0 10px;
+  }
+  
+  .contact-section .social-media a {
+    display: inline-block;
+  }
+  
